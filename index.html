@@ -20,17 +20,13 @@
       overflow: hidden;
     }
 
-    /* =========================
-       ✅ CUSTOM FONT
-    ========================== */
+    /* ✅ CUSTOM FONT */
     @font-face {
       font-family: headerFont;
       src: url("font/header.otf");
     }
 
-    /* =========================
-       ✅ LOADER
-    ========================== */
+    /* ✅ LOADER */
     #loader {
       position: fixed;
       inset: 0;
@@ -42,14 +38,24 @@
       z-index: 9999;
     }
 
+    /* ✅ DEFAULT LOGO SIZE (BASE) */
     .logo-img {
-      width: 720px;
-      max-width: 140vw;
+      width: 700px;
       animation: pulse 1.5s infinite;
     }
 
+    /* ✅ LAPTOP → DOUBLE SIZE */
     @media (min-width: 1024px) {
-      .logo-img { width: 760px; }
+      .logo-img {
+        width: 1400px;
+      }
+    }
+
+    /* ✅ MOBILE → 40% SMALLER */
+    @media (max-width: 768px) {
+      .logo-img {
+        width: 420px;
+      }
     }
 
     @keyframes pulse {
@@ -61,7 +67,7 @@
     .loading-text {
       margin-top: 20px;
       color: #ccc;
-      font-size: 24px;
+      font-size: 22px;
       letter-spacing: 2px;
     }
 
@@ -77,9 +83,7 @@
       100% { content: "..."; }
     }
 
-    /* =========================
-       ✅ LANDING PAGE
-    ========================== */
+    /* ✅ LANDING PAGE */
     #landing {
       display: none;
       width: 100%;
@@ -92,53 +96,48 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      background: black;
     }
 
+    /* ✅ PERFECT MOBILE VIDEO FIT (NO CROPPING) */
     @media (max-width: 768px) {
       video {
         object-fit: contain;
       }
     }
 
-    /* =========================
-       ✅ TOP TRANSPARENT BACKDROP + MENU
-    ========================== */
-
+    /* ✅ TOP TRANSPARENT MENU BAR */
     .top-backdrop {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 0px;                 /* ✅ BACKDROP HEIGHT FROM TOP */
+      height: 60px;
       background: rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(12px6
+      backdrop-filter: blur(12px);
       z-index: 999;
-      display: none;               /* ✅ APPEARS AFTER VIDEO */
+      display: none;
       align-items: center;
       justify-content: center;
     }
 
     .menu-inner ul {
       display: flex;
-      gap: 60px;
+      gap: 90px;
       list-style: none;
       align-items: center;
-      padding: 0;
-      margin: 0;
     }
 
     .menu-inner a {
       font-family: headerFont;
-      font-size: 17px;
-      line-height: 16px;
-      color: white;
+      font-size: 18px;
+      color: rgb(11, 237, 173);
       text-decoration: none;
       letter-spacing: 2px;
       position: relative;
       transition: 0.3s ease;
     }
 
-    /* ✅ Underline Animation */
     .menu-inner a::after {
       content: "";
       position: absolute;
@@ -146,7 +145,7 @@
       left: 0;
       height: 2px;
       width: 0%;
-      background: cyan;
+      background: white;
       transition: 0.3s ease;
     }
 
@@ -155,9 +154,8 @@
     }
 
     .menu-inner a:hover {
-      color: cyan;
+      color: white;
     }
-
   </style>
 </head>
 
@@ -169,7 +167,7 @@
     <div class="loading-text">Loading<span class="dots"></span></div>
   </div>
 
-  <!-- ✅ TOP TRANSPARENT BACKDROP WITH MENU -->
+  <!-- ✅ MENU BAR -->
   <div class="top-backdrop" id="menuBar">
     <div class="menu-inner">
       <ul>
@@ -222,7 +220,7 @@
       }
     }
 
-    const activeVideo = selectVideo();
+    let activeVideo = selectVideo();
 
     activeVideo.addEventListener("canplaythrough", () => {
       setTimeout(() => {
@@ -232,9 +230,15 @@
       }, 800);
     });
 
-    /* ✅ SHOW TOP BACKDROP + MENU AFTER VIDEO ENDS */
     activeVideo.addEventListener("ended", () => {
       menuBar.style.display = "flex";
+    });
+
+    /* ✅ Orientation & Resize Fix */
+    window.addEventListener("resize", () => {
+      activeVideo.pause();
+      activeVideo = selectVideo();
+      activeVideo.play();
     });
 
     /* ✅ SAFETY FALLBACK */
@@ -247,3 +251,4 @@
 
 </body>
 </html>
+
