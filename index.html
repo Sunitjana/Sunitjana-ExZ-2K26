@@ -12,6 +12,266 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading to Video Landing Page</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+    }
+
+    @font-face {
+      font-family: headerFont;
+      src: url("font/header.otf");
+    }
+
+    /* ===================== LOADER ===================== */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .logo-img {
+      width: 700px;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* ✅ Laptop = Double Size */
+    @media (min-width: 1024px) {
+      .logo-img { width: 1400px; }
+    }
+
+    /* ✅ Mobile = 40% Smaller */
+    @media (max-width: 768px) {
+      .logo-img { width: 420px; }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .dots::after {
+      content: "";
+      animation: dots 2s infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ""; }
+      33% { content: "."; }
+      66% { content: ".."; }
+      100% { content: "..."; }
+    }
+
+    /* ===================== LANDING ===================== */
+    #landing {
+      display: none;
+      width: 100%;
+      height: 100dvh;
+      position: relative;
+      background: black;
+    }
+
+    video {
+      width: 100%;
+      height: 100dvh;
+      object-fit: cover;
+      background: black;
+    }
+
+    /* ===================== MENU ===================== */
+    .top-backdrop {
+      position: fixed;
+      top: env(safe-area-inset-top);
+      left: 0;
+      width: 100%;
+      height: 56px;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-inner ul {
+      display: flex;
+      gap: 80px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .menu-inner a {
+      font-family: headerFont;
+      font-size: 18px;
+      color: rgb(11, 237, 173);
+      text-decoration: none;
+      letter-spacing: 2px;
+      position: relative;
+    }
+
+    .menu-inner a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: white;
+      transition: 0.3s ease;
+    }
+
+    .menu-inner a:hover::after {
+      width: 100%;
+    }
+
+    .menu-inner a:hover {
+      color: white;
+    }
+
+    /* ===================== ✅ MOBILE ONE-LINE MENU FIX ===================== */
+    @media (max-width: 768px) {
+
+      .top-backdrop {
+        height: 44px;
+        padding: 0 6px;
+      }
+
+      .menu-inner ul {
+        flex-wrap: nowrap;              /* ✅ ONE LINE */
+        gap: 10px;                       /* ✅ TIGHT GAP */
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .menu-inner li {
+        white-space: nowrap;            /* ✅ NO WORD BREAK */
+      }
+
+      .menu-inner a {
+        font-size: 7px;                 /* ✅ ~60% SMALLER */
+        letter-spacing: 0.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== LOADER ===================== -->
+  <div id="loader">
+    <img src="logo.png" class="logo-img" />
+    <div class="loading-text">Loading<span class="dots"></span></div>
+  </div>
+
+  <!-- ===================== MENU ===================== -->
+  <div class="top-backdrop" id="menuBar">
+    <div class="menu-inner">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#glimpses">Glimpses</a></li>
+        <li><a href="#sponsor">Sponsor</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== LANDING ===================== -->
+  <div id="landing">
+
+    <video id="desktopVideo" muted playsinline preload="auto">
+      <source src="laptop2.mp4" type="video/mp4">
+    </video>
+
+    <video id="mobileVideo" muted playsinline preload="auto" style="display:none;">
+      <source src="VN20251208_012531.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+  <!-- ===================== SCRIPT ===================== -->
+  <script>
+    const loader = document.getElementById("loader");
+    const landing = document.getElementById("landing");
+    const desktopVideo = document.getElementById("desktopVideo");
+    const mobileVideo = document.getElementById("mobileVideo");
+    const menuBar = document.getElementById("menuBar");
+
+    function isMobile() {
+      return window.matchMedia("(max-width: 768px)").matches;
+    }
+
+    function selectVideo() {
+      if (isMobile()) {
+        desktopVideo.style.display = "none";
+        mobileVideo.style.display = "block";
+        return mobileVideo;
+      } else {
+        mobileVideo.style.display = "none";
+        desktopVideo.style.display = "block";
+        return desktopVideo;
+      }
+    }
+
+    let activeVideo = selectVideo();
+
+    activeVideo.addEventListener("canplaythrough", () => {
+      setTimeout(() => {
+        loader.style.display = "none";
+        landing.style.display = "block";
+        activeVideo.play();
+      }, 500);
+    });
+
+    activeVideo.addEventListener("ended", () => {
+      menuBar.style.display = "flex";
+    });
+
+    window.addEventListener("resize", () => {
+      activeVideo.pause();
+      activeVideo = selectVideo();
+      activeVideo.play();
+    });
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      landing.style.display = "block";
+      activeVideo.play();
+    }, 6000);
+  </script>
+
+</body>
+</html>
 
     html, body {
       width: 100%;
