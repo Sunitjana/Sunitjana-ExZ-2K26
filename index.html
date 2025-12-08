@@ -20,7 +20,6 @@
       overflow: hidden;
     }
 
-    /* ✅ CUSTOM FONT */
     @font-face {
       font-family: headerFont;
       src: url("font/header.otf");
@@ -38,24 +37,17 @@
       z-index: 9999;
     }
 
-    /* ✅ DEFAULT LOGO SIZE (BASE) */
     .logo-img {
       width: 700px;
       animation: pulse 1.5s infinite;
     }
 
-    /* ✅ LAPTOP → DOUBLE SIZE */
     @media (min-width: 1024px) {
-      .logo-img {
-        width: 1400px;
-      }
+      .logo-img { width: 1400px; }
     }
 
-    /* ✅ MOBILE → 40% SMALLER */
     @media (max-width: 768px) {
-      .logo-img {
-        width: 420px;
-      }
+      .logo-img { width: 420px; }
     }
 
     @keyframes pulse {
@@ -67,13 +59,13 @@
     .loading-text {
       margin-top: 20px;
       color: #ccc;
-      font-size: 22px;
+      font-size: 20px;
       letter-spacing: 2px;
     }
 
     .dots::after {
       content: "";
-      animation: dots 3.5s infinite;
+      animation: dots 1.8s infinite;
     }
 
     @keyframes dots {
@@ -83,37 +75,30 @@
       100% { content: "..."; }
     }
 
-    /* ✅ LANDING PAGE */
+    /* ✅ LANDING FIXED HEIGHT */
     #landing {
       display: none;
       width: 100%;
-      height: 100svh;
+      height: 100dvh;
       position: relative;
       background: black;
     }
 
     video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 100dvh;
+      object-fit: cover;   /* ✅ FULL SCREEN ALWAYS */
       background: black;
     }
 
-    /* ✅ PERFECT MOBILE VIDEO FIT (NO CROPPING) */
-    @media (max-width: 768px) {
-      video {
-        object-fit: contain;
-      }
-    }
-
-    /* ✅ TOP TRANSPARENT MENU BAR */
+    /* ✅ MENU BAR */
     .top-backdrop {
       position: fixed;
-      top: 0;
+      top: env(safe-area-inset-top);
       left: 0;
       width: 100%;
-      height: 60px;
-      background: rgba(0, 0, 0, 0.35);
+      height: 56px;
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(12px);
       z-index: 999;
       display: none;
@@ -123,9 +108,10 @@
 
     .menu-inner ul {
       display: flex;
-      gap: 90px;
+      gap: 80px;
       list-style: none;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .menu-inner a {
@@ -135,7 +121,6 @@
       text-decoration: none;
       letter-spacing: 2px;
       position: relative;
-      transition: 0.3s ease;
     }
 
     .menu-inner a::after {
@@ -156,6 +141,24 @@
     .menu-inner a:hover {
       color: white;
     }
+
+    /* ✅ MOBILE MENU FIX */
+    @media (max-width: 768px) {
+      .top-backdrop {
+        height: auto;
+        padding: 8px 10px;
+      }
+
+      .menu-inner ul {
+        gap: 18px;
+        justify-content: center;
+      }
+
+      .menu-inner a {
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+    }
   </style>
 </head>
 
@@ -167,7 +170,7 @@
     <div class="loading-text">Loading<span class="dots"></span></div>
   </div>
 
-  <!-- ✅ MENU BAR -->
+  <!-- ✅ MENU -->
   <div class="top-backdrop" id="menuBar">
     <div class="menu-inner">
       <ul>
@@ -184,12 +187,10 @@
   <!-- ✅ LANDING -->
   <div id="landing">
 
-    <!-- ✅ DESKTOP VIDEO -->
     <video id="desktopVideo" muted playsinline preload="auto">
       <source src="laptop2.mp4" type="video/mp4">
     </video>
 
-    <!-- ✅ MOBILE VIDEO -->
     <video id="mobileVideo" muted playsinline preload="auto" style="display:none;">
       <source src="VN20251208_012531.mp4" type="video/mp4">
     </video>
@@ -227,21 +228,19 @@
         loader.style.display = "none";
         landing.style.display = "block";
         activeVideo.play();
-      }, 800);
+      }, 500);
     });
 
     activeVideo.addEventListener("ended", () => {
       menuBar.style.display = "flex";
     });
 
-    /* ✅ Orientation & Resize Fix */
     window.addEventListener("resize", () => {
       activeVideo.pause();
       activeVideo = selectVideo();
       activeVideo.play();
     });
 
-    /* ✅ SAFETY FALLBACK */
     setTimeout(() => {
       loader.style.display = "none";
       landing.style.display = "block";
@@ -251,4 +250,3 @@
 
 </body>
 </html>
-
