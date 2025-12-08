@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading to Video Landing Page</title>
+
+  <style>
+<<<<<<< HEAD
+    /* =========================
+       RESET & GLOBAL FIX
+    ========================== */
+=======
+>>>>>>> 63f5b75 (Update project files)
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+
+    /* =========================
+       ✅ CUSTOM FONT
+    ========================== */
+    @font-face {
+      font-family: headerFont;
+      src: url("font/header.otf");
+    }
+
+    /* =========================
+       ✅ LOADER
+    ========================== */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .logo-img {
+<<<<<<< HEAD
+      width: 620px;
+=======
+      width: 220px;
+>>>>>>> 63f5b75 (Update project files)
+      max-width: 70vw;
+      animation: pulse 1.5s infinite;
+    }
+
+<<<<<<< HEAD
+    /* Desktop Logo */
+    @media (min-width: 1024px) {
+      .logo-img {
+        width: 760px;
+        max-width: 60vw;
+      }
+=======
+    @media (min-width: 1024px) {
+      .logo-img { width: 360px; }
+>>>>>>> 63f5b75 (Update project files)
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    .dots::after {
+      content: "";
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ""; }
+      33% { content: "."; }
+      66% { content: ".."; }
+      100% { content: "..."; }
+    }
+
+    /* =========================
+       ✅ LANDING PAGE
+    ========================== */
+    #landing {
+      display: none;
+      width: 100%;
+<<<<<<< HEAD
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+      background: black;
+      overflow: hidden;
+=======
+      height: 100svh;
+      position: relative;
+      background: black;
+>>>>>>> 63f5b75 (Update project files)
+    }
+
+    video {
+      position: absolute;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      background: black;
+    }
+
+    /* ✅✅✅ MOBILE FIX FOR TOP & BOTTOM BLANK SPACE */
+    @media (max-width: 768px) {
+      #landing {
+        height: 100dvh;   /* ✅ real mobile height */
+      }
+
+      video {
+        height: 100dvh;   /* ✅ removes top & bottom gap */
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 768px) {
+      video {
+        object-fit: contain;
+      }
+    }
+
+    /* =========================
+       ✅ TOP TRANSPARENT BACKDROP + MENU
+    ========================== */
+
+    .top-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;                 /* ✅ BACKDROP HEIGHT FROM TOP */
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      display: none;               /* ✅ APPEARS AFTER VIDEO */
+      align-items: center;
+      justify-content: center;
+<<<<<<< HEAD
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      background: rgba(0,0,0,0.3);
+      pointer-events: none;
+=======
+>>>>>>> 63f5b75 (Update project files)
+    }
+
+    .menu-inner ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-inner a {
+      font-family: headerFont;
+      font-size: 20px;
+      line-height: 16px;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 2px;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    /* ✅ Underline Animation */
+    .menu-inner a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: cyan;
+      transition: 0.3s ease;
+    }
+
+    .menu-inner a:hover::after {
+      width: 100%;
+    }
+
+    .menu-inner a:hover {
+      color: cyan;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ LOADER -->
+  <div id="loader">
+    <img src="logo.png" class="logo-img" />
+    <div class="loading-text">Loading<span class="dots"></span></div>
+  </div>
+
+<<<<<<< HEAD
+  <!-- =========================
+       LANDING PAGE
+  ========================== -->
+  <div id="landing">
+
+    <!-- ✅ LAPTOP VIDEO -->
+    <video id="desktopVideo" muted playsinline preload="auto">
+      <source src="laptop1.mp4" type="video/mp4" />
+    </video>
+
+    <!-- ✅ MOBILE VIDEO -->
+    <video id="mobileVideo" muted playsinline preload="auto" style="display:none;">
+      <source src="VN20251208_012531.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay-content"></div>
+  </div>
+
+  <!-- =========================
+       SCRIPT
+  ========================== -->
+=======
+  <!-- ✅ TOP TRANSPARENT BACKDROP WITH MENU -->
+  <div class="top-backdrop" id="menuBar">
+    <div class="menu-inner">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ✅ LANDING -->
+  <div id="landing">
+
+    <!-- ✅ DESKTOP VIDEO -->
+    <video id="desktopVideo" muted playsinline preload="auto">
+      <source src="laptop2.mp4" type="video/mp4">
+    </video>
+
+    <!-- ✅ MOBILE VIDEO -->
+    <video id="mobileVideo" muted playsinline preload="auto" style="display:none;">
+      <source src="VN20251208_012531.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+  <!-- ✅ SCRIPT -->
+>>>>>>> 63f5b75 (Update project files)
+  <script>
+    const loader = document.getElementById("loader");
+    const landing = document.getElementById("landing");
+    const desktopVideo = document.getElementById("desktopVideo");
+    const mobileVideo = document.getElementById("mobileVideo");
+    const menuBar = document.getElementById("menuBar");
+
+    function isMobile() {
+      return window.matchMedia("(max-width: 768px)").matches;
+    }
+
+    function selectVideo() {
+      if (isMobile()) {
+        desktopVideo.style.display = "none";
+        mobileVideo.style.display = "block";
+        return mobileVideo;
+      } else {
+        mobileVideo.style.display = "none";
+        desktopVideo.style.display = "block";
+        return desktopVideo;
+      }
+    }
+
+    const activeVideo = selectVideo();
+
+    activeVideo.addEventListener("canplaythrough", () => {
+      setTimeout(() => {
+        loader.style.display = "none";
+        landing.style.display = "block";
+        activeVideo.play();
+      }, 800);
+    });
+
+<<<<<<< HEAD
+=======
+    /* ✅ SHOW TOP BACKDROP + MENU AFTER VIDEO ENDS */
+    activeVideo.addEventListener("ended", () => {
+      menuBar.style.display = "flex";
+    });
+
+    /* ✅ SAFETY FALLBACK */
+>>>>>>> 63f5b75 (Update project files)
+    setTimeout(() => {
+      loader.style.display = "none";
+      landing.style.display = "block";
+      activeVideo.play();
+    }, 6000);
+  </script>
+
+</body>
+</html>
