@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glimpses</title>
+
+<link rel="stylesheet" href="styles/glimps.css">
+<!-- <link rel="stylesheet" href="styles/home.css"> -->
+</head>
+
+<body>  
+<div class="glimpse-wrapper">
+  <button class="arrow left" onclick="prev()">‹</button>
+  <button class="arrow right" onclick="next()">›</button>
+  <div class="card-container" id="container"></div>
+</div>
+
+<script>
+    const data = [
+      { title: "Event Night", text: "Memorable night with lights & energy" },
+      { title: "Hackathon", text: "Innovation meets collaboration" },
+      { title: "Workshop", text: "Hands-on learning experience" },
+      { title: "Cultural Fest", text: "Music, dance and celebration" },
+      { title: "Guest Talk", text: "Insights from industry leaders" }
+    ];
+    
+    const container = document.getElementById("container");
+    let current = 0;
+    const cards = [];
+    
+    /* CREATE ONCE */
+    data.forEach(d => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<div><h2>${d.title}</h2><p>${d.text}</p></div>`;
+      container.appendChild(card);
+      cards.push(card);
+    });
+    
+    /* APPLY POSITIONS */
+    function update() {
+      cards.forEach((card, i) => {
+        card.className = "card";
+    
+        if (i === current) card.classList.add("center");
+        else if (i === current - 1 || (current === 0 && i === cards.length - 1))
+          card.classList.add("left");
+        else if (i === current + 1 || (current === cards.length - 1 && i === 0))
+          card.classList.add("right");
+        else card.classList.add("hidden");
+      });
+    }
+    
+    /* CONTROLS */
+    function next() {
+      current = (current + 1) % cards.length;
+      requestAnimationFrame(update);
+    }
+    
+    function prev() {
+      current = (current - 1 + cards.length) % cards.length;
+      requestAnimationFrame(update);
+    }
+    
+    /* SWIPE */
+    let startX = 0;
+    document.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    document.addEventListener("touchend", e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (dx > 60) prev();
+      if (dx < -60) next();
+    });
+    
+    update();
+    </script>
+    
+
+</body>
+</html>
