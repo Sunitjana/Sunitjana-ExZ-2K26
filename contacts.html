@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts – Euphonious × Zyzzva</title>
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/contacts.css" />
+</head>
+
+<body>
+
+<div id="loader">
+  <img src="logo.png" class="logo-img" />
+  <div class="loading-text">Loading<span class="dots"></span></div>
+</div>
+
+
+<div class="top-backdrop" id="menuBar">
+  <button class="menu-button" id="menuToggle" aria-label="Toggle menu">
+    <span class="menu-icon"></span>
+  </button>
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu-radial">
+    <div class="orbit">
+      <a href="about.html" class="orbit-item" style="--x:-80px;--y:-250px">About</a>
+      <a href="team.html" class="orbit-item" style="--x:138px;--y:-140px">Team</a>
+      <a href="contacts.html" class="orbit-item" style="--x:138px;--y:80px">Contacts</a>
+      <a href="#" class="orbit-item" style="--x:-80px;--y:160px">Events</a>
+      <a href="glimps.html" class="orbit-item" style="--x:-308px;--y:80px">Glimpses</a>
+      <a href="sponsor.html" class="orbit-item" style="--x:-308px;--y:-140px">Sponsor</a>
+    </div>
+    <button class="menu-center" id="loginBtn">Login</button>
+  </div>
+</div>
+
+
+<div class="contacts-container">
+  <h1 class="page-title">Get In Touch</h1>
+  <p class="page-subtitle">We'd love to hear from you! Reach out and let's make magic together.</p>
+
+  <div class="contacts-wrapper">
+    
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="card-icon">📧</div>
+        <h3>Email</h3>
+        <p>info@euphoniouszyzzva.com</p>
+        <a href="mailto:info@euphoniouszyzzva.com" class="contact-link">Send Email</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">📱</div>
+        <h3>Phone</h3>
+        <p>+91 98765 43210</p>
+        <a href="tel:+919876543210" class="contact-link">Call Now</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">📍</div>
+        <h3>Location</h3>
+        <p>GNIT Kolkata<br>West Bengal, India</p>
+        <a href="#" class="contact-link">View Map</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">💬</div>
+        <h3>Social Media</h3>
+        <p>Follow us for updates</p>
+        <div class="social-links">
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="contact-form-wrapper">
+      <div class="form-container">
+        <h2>Send Us a Message</h2>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <label for="name">Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            <label for="email">Email</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+            <label for="phone">Phone (Optional)</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="javaScript/navbar.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    }, 1000);
+  });
+
+  
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

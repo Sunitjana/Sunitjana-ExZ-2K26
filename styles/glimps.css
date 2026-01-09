@@ -13,17 +13,35 @@ body {
   justify-content: center;
   overflow: hidden;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
-/* ================= WRAPPER ================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../assets/glimps.jpeg") center/cover no-repeat fixed;
+  filter: blur(8px) brightness(0.4);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+
 .glimpse-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(2px);
 }
 
-/* ================= CARD CONTAINER ================= */
+
 .card-container {
   position: absolute;
   inset: 0;
@@ -33,7 +51,7 @@ body {
   perspective: 1200px;
 }
 
-/* ================= CARD ================= */
+
 .card {
   position: absolute;
   width: clamp(240px, 30vw, 340px);
@@ -72,7 +90,7 @@ body {
   will-change: transform;
 }
 
-/* 🔥 HOVER DEPTH + COLOR SHIFT */
+
 .card:hover {
   background:
     linear-gradient(
@@ -89,7 +107,7 @@ body {
   transform: translateY(-6px) scale(1.03);
 }
 
-/* ================= CARD STATES ================= */
+
 .card.center {
   transform: translateX(0) scale(1.1);
   z-index: 5;
@@ -113,7 +131,7 @@ body {
   transform: scale(0.6);
 }
 
-/* ================= CARD CONTENT ================= */
+
 .card h2 {
   font-size: clamp(20px, 3vw, 28px);
   margin-bottom: 12px;
@@ -126,14 +144,16 @@ body {
 
 .card p {
   font-size: clamp(14px, 2.2vw, 16px);
-  opacity: 0.85;
+  opacity: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 1);
 }
 
 @keyframes shimmer {
   to { background-position: 200%; }
 }
 
-/* ================= ARROWS ================= */
+
 .arrow {
   position: absolute;
   top: 50%;
@@ -161,7 +181,7 @@ body {
 .arrow.left { left: 20px; }
 .arrow.right { right: 20px; }
 
-/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
   .card.left {
     transform: translateX(-220px) rotateY(25deg) scale(0.85);

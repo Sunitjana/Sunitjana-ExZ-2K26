@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team – Euphonious × Zyzzva</title>
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/team.css" />
+</head>
+
+<body>
+
+<div id="loader">
+  <img src="logo.png" class="logo-img" />
+  <div class="loading-text">Loading<span class="dots"></span></div>
+</div>
+
+<div class="top-backdrop" id="menuBar">
+  <button class="menu-button" id="menuToggle" aria-label="Toggle menu">
+    <span class="menu-icon"></span>
+  </button>
+</div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu-radial">
+    <div class="orbit">
+      <a href="about.html" class="orbit-item" style="--x:-80px;--y:-250px">About</a>
+      <a href="team.html" class="orbit-item" style="--x:138px;--y:-140px">Team</a>
+      <a href="contacts.html" class="orbit-item" style="--x:138px;--y:80px">Contacts</a>
+      <a href="#" class="orbit-item" style="--x:-80px;--y:160px">Events</a>
+      <a href="glimps.html" class="orbit-item" style="--x:-308px;--y:80px">Glimpses</a>
+      <a href="sponsor.html" class="orbit-item" style="--x:-308px;--y:-140px">Sponsor</a>
+    </div>
+    <button class="menu-center" id="loginBtn">Login</button>
+  </div>
+</div>
+
+<div class="team-container">
+  <h1 class="page-title">Our Team</h1>
+  <p class="page-subtitle">The passionate minds behind Euphonious × Zyzzva '26</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="card-glow"></div>
+      <div class="member-image">
+        <div class="image-placeholder">👤</div>
+      </div>
+      <div class="member-info">
+        <h3>John Doe</h3>
+        <p class="role">Festival Director</p>
+        <p class="bio">Leading the vision and execution of our grand celebration.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="card-glow"></div>
+      <div class="member-image">
+        <div class="image-placeholder">👤</div>
+      </div>
+      <div class="member-info">
+        <h3>Jane Smith</h3>
+        <p class="role">Event Coordinator</p>
+        <p class="bio">Ensuring every detail is perfect for an unforgettable experience.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="card-glow"></div>
+      <div class="member-image">
+        <div class="image-placeholder">👤</div>
+      </div>
+      <div class="member-info">
+        <h3>Mike Johnson</h3>
+        <p class="role">Technical Head</p>
+        <p class="bio">Bringing innovation and technology to the festival.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="card-glow"></div>
+      <div class="member-image">
+        <div class="image-placeholder">👤</div>
+      </div>
+      <div class="member-info">
+        <h3>Sarah Williams</h3>
+        <p class="role">Marketing Lead</p>
+        <p class="bio">Spreading the word and building excitement.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="card-glow"></div>
+      <div class="member-image">
+        <div class="image-placeholder">👤</div>
+      </div>
+      <div class="member-info">
+        <h3>David Brown</h3>
+        <p class="role">Creative Director</p>
+        <p class="bio">Crafting the visual identity and artistic direction.</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="card-glow"></div>
+      <div class="member-image">
+        <div class="image-placeholder">👤</div>
+      </div>
+      <div class="member-info">
+        <h3>Emily Davis</h3>
+        <p class="role">Operations Manager</p>
+        <p class="bio">Keeping everything running smoothly behind the scenes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="javaScript/navbar.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    }, 1000);
+  });
+</script>
+</body>
+</html>

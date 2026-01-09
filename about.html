@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – Euphonious × Zyzzva</title>
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/about.css" />
+</head>
+
+<body>
+
+
+<div id="loader">
+  <img src="logo.png" class="logo-img" />
+  <div class="loading-text">Loading<span class="dots"></span></div>
+</div>
+
+
+<div class="top-backdrop" id="menuBar">
+  <button class="menu-button" id="menuToggle" aria-label="Toggle menu">
+    <span class="menu-icon"></span>
+  </button>
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu-radial">
+    <div class="orbit">
+      <a href="about.html" class="orbit-item" style="--x:-80px;--y:-250px">About</a>
+      <a href="team.html" class="orbit-item" style="--x:138px;--y:-140px">Team</a>
+      <a href="contacts.html" class="orbit-item" style="--x:138px;--y:80px">Contacts</a>
+      <a href="#" class="orbit-item" style="--x:-80px;--y:160px">Events</a>
+      <a href="glimps.html" class="orbit-item" style="--x:-308px;--y:80px">Glimpses</a>
+      <a href="sponsor.html" class="orbit-item" style="--x:-308px;--y:-140px">Sponsor</a>
+    </div>
+    <button class="menu-center" id="loginBtn">Login</button>
+  </div>
+</div>
+
+
+<div class="about-container">
+  <div class="content-wrapper">
+
+    <div class="slider-box">
+      <div id="media-container"></div>
+      <button class="arrow left" onclick="prevSlide()">‹</button>
+      <button class="arrow right" onclick="nextSlide()">›</button>
+      <div class="slider-overlay"></div>
+    </div>
+
+
+    <div class="story-side">
+      <h1 class="title">Euphonious × Zyzzva '26</h1>
+      <div class="story-box">
+        <h2>Our Story</h2>
+        <p>
+          Since its inception in 2004, EUPHONIOUSXZYZZVA has been more than 
+          just a cultural fest—it's a celebration of creativity, talent, and 
+          youthful energy. Hosted at GNIT Kolkata, this iconic event brings 
+          together students, artists, and performers from all walks of life.
+        </p>
+        <p class="story-extra">
+          Join us for an unforgettable experience filled with music, dance, 
+          competitions, and memories that last a lifetime.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="javaScript/navbar.js"></script>
+<script src="javaScript/about.js"></script>
+<script>
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    }, 1000);
+  });
+</script>
+</body>
+</html>
