@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     about: "about.html",
     team: "team.html",
     contacts: "contacts.html",
-    events: "#",
+    events: "events.html",
     glimpses: "glimps.html",
     sponsor: "sponsor.html"
   };

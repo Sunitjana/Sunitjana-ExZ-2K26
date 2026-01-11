@@ -209,8 +209,8 @@
         transform: translateY(0) scaleX(0);
       }
 
-      /* ✅ FULLSCREEN MENU OVERLAY */
-      .menu-overlay {
+     
+      /* .menu-overlay {
         position: fixed;
         inset: 0;
         display: grid;
@@ -238,10 +238,9 @@
         opacity: 1;
         pointer-events: auto;
         transform: scale(1);
-      }
+      } */
 
-      /* ✅ RADIAL MENU */
-      .menu-radial {
+      /* .menu-radial {
         position: relative;
         width: min(520px, 76vw);
         height: min(520px, 76vw);
@@ -249,9 +248,9 @@
         place-items: center;
         filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45));
         animation: floatIn 0.65s ease forwards;
-      }
+      } */
 
-      .menu-radial::before {
+      /* .menu-radial::before {
         content: "";
         position: absolute;
         inset: 8%;
@@ -264,9 +263,9 @@
         );
         animation: breathe 6s ease-in-out infinite;
         pointer-events: none;
-      }
+      } */
 
-      .orbit {
+      /* .orbit {
         position: absolute;
         inset: 10%;
         width: 80%;
@@ -275,14 +274,13 @@
         display: grid;
         place-items: center;
 
-        /* ❌ Remove this line */
-        /* animation: slowSpin 26s linear infinite; */
-      }
-      .menu-overlay.show .orbit {
+      
+      } */
+      /* .menu-overlay.show .orbit {
         animation-play-state: running;
-      }
+      } */
 
-      .orbit-item {
+      /* .orbit-item {
         position: absolute;
         padding: 12px 20px;
         min-width: 120px;
@@ -297,7 +295,7 @@
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 10px 25px rgba(12, 240, 180, 0.3);
 
-        /* Start hidden */
+       
         opacity: 0;
         transform: scale(0.6);
         transition: opacity 0.4s ease, transform 0.4s ease;
@@ -305,40 +303,40 @@
         left: calc(50% + var(--x));
         top: calc(50% + var(--y));
         transform: translate(-50%, -50%) scale(0.6);
-      }
+      } */
 
-      .menu-overlay.show .orbit-item {
+      /* .menu-overlay.show .orbit-item {
         opacity: 1;
         transform: scale(1);
-      }
+      } */
 
-      .menu-overlay.show .orbit-item:nth-child(1) {
+      /* .menu-overlay.show .orbit-item:nth-child(1) {
         transition-delay: 0.1s;
-      }
-      .menu-overlay.show .orbit-item:nth-child(2) {
+      } */
+      /* .menu-overlay.show .orbit-item:nth-child(2) {
         transition-delay: 0.2s;
-      }
-      .menu-overlay.show .orbit-item:nth-child(3) {
+      } */
+      /* .menu-overlay.show .orbit-item:nth-child(3) {
         transition-delay: 0.3s;
-      }
-      .menu-overlay.show .orbit-item:nth-child(4) {
+      } */
+      /* .menu-overlay.show .orbit-item:nth-child(4) {
         transition-delay: 0.4s;
-      }
-      .menu-overlay.show .orbit-item:nth-child(5) {
+      } */
+      /* .menu-overlay.show .orbit-item:nth-child(5) {
         transition-delay: 0.5s;
-      }
-      .menu-overlay.show .orbit-item:nth-child(6) {
+      } */
+      /* .menu-overlay.show .orbit-item:nth-child(6) {
         transition-delay: 0.6s;
-      }
+      } */
 
-      .orbit-item:hover {
+      /* .orbit-item:hover {
         box-shadow: 0 15px 40px rgba(12, 240, 180, 0.6),
           0 0 20px rgba(12, 240, 180, 0.9),
           inset 0 0 10px rgba(12, 240, 180, 0.4);
         transform: translate(-50%, -50%) scale(1.08);
         border-color: rgba(12, 240, 180, 0.8);
         color: rgb(11, 237, 173);
-      }
+      } */
 
       .menu-center {
         position: relative;
