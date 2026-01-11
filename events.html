@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events – Euphonious × Zyzzva</title>
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/events.css" />
+</head>
+
+<body>
+
+<div id="loader">
+  <img src="logo.png" class="logo-img" />
+  <div class="loading-text">Loading<span class="dots"></span></div>
+</div>
+
+<div class="top-backdrop" id="menuBar">
+  <button class="menu-button" id="menuToggle" aria-label="Toggle menu">
+    <span class="menu-icon"></span>
+  </button>
+</div>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <div class="menu-radial">
+    <div class="orbit">
+      <a href="about.html" class="orbit-item">About</a>
+      <a href="team.html" class="orbit-item">Team</a>
+      <a href="contacts.html" class="orbit-item">Contacts</a>
+      <a href="events.html" class="orbit-item">Events</a>
+      <a href="glimps.html" class="orbit-item">Glimpses</a>
+      <a href="sponsor.html" class="orbit-item">Sponsor</a>
+    </div>
+    <button class="menu-center" id="loginBtn">Login</button>
+  </div>
+</div>
+
+<div class="events-container">
+  <h1 class="page-title">Festival Events</h1>
+  <p class="page-subtitle">Experience the magic of Euphonious × Zyzzva '26</p>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-icon">🎵</div>
+      <h3>Music Concert</h3>
+      <p class="event-date">Day 1 • 6:00 PM</p>
+      <p class="event-description">Live performances by renowned artists and bands. Get ready for an electrifying night of music!</p>
+      <div class="event-tags">
+        <span class="tag">Live Music</span>
+        <span class="tag">Concert</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">💻</div>
+      <h3>Hackathon</h3>
+      <p class="event-date">Day 1-2 • 9:00 AM</p>
+      <p class="event-description">48-hour coding challenge. Build innovative solutions and compete for amazing prizes!</p>
+      <div class="event-tags">
+        <span class="tag">Coding</span>
+        <span class="tag">Competition</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">🎭</div>
+      <h3>Drama & Theatre</h3>
+      <p class="event-date">Day 2 • 4:00 PM</p>
+      <p class="event-description">Witness captivating performances and theatrical excellence from talented groups.</p>
+      <div class="event-tags">
+        <span class="tag">Theatre</span>
+        <span class="tag">Performance</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">🎨</div>
+      <h3>Art Exhibition</h3>
+      <p class="event-date">Day 1-3 • All Day</p>
+      <p class="event-description">Explore stunning artworks and creative expressions from talented artists.</p>
+      <div class="event-tags">
+        <span class="tag">Art</span>
+        <span class="tag">Exhibition</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">🎤</div>
+      <h3>Karaoke Night</h3>
+      <p class="event-date">Day 2 • 8:00 PM</p>
+      <p class="event-description">Sing your heart out! Join us for an unforgettable karaoke experience.</p>
+      <div class="event-tags">
+        <span class="tag">Entertainment</span>
+        <span class="tag">Fun</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">🏆</div>
+      <h3>Gaming Tournament</h3>
+      <p class="event-date">Day 2 • 10:00 AM</p>
+      <p class="event-description">Compete in exciting gaming tournaments. Show your skills and win prizes!</p>
+      <div class="event-tags">
+        <span class="tag">Gaming</span>
+        <span class="tag">Tournament</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">📚</div>
+      <h3>Workshop Series</h3>
+      <p class="event-date">Day 1-3 • Multiple Sessions</p>
+      <p class="event-description">Learn from industry experts. Hands-on workshops on various topics.</p>
+      <div class="event-tags">
+        <span class="tag">Learning</span>
+        <span class="tag">Workshop</span>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-icon">🎪</div>
+      <h3>Cultural Night</h3>
+      <p class="event-date">Day 3 • 7:00 PM</p>
+      <p class="event-description">A grand celebration of culture, dance, and traditions. Don't miss this spectacular finale!</p>
+      <div class="event-tags">
+        <span class="tag">Culture</span>
+        <span class="tag">Celebration</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="javaScript/navbar.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    }, 1000);
+  });
+</script>
+</body>
+</html>
